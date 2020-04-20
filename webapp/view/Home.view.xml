@@ -2,7 +2,7 @@
 xmlns:core="sap.ui.core"
 xmlns:unified="sap.ui.unified"
 xmlns="sap.m">
-    <Page showHeader="true" title=""   showFooter="false" showNavButton="false">
+    <Page showHeader="true" title="TELEMEDICINA"   showFooter="false" showNavButton="false">
         <content>
             <IconTabBar
                 expandable="false" expanded="true"

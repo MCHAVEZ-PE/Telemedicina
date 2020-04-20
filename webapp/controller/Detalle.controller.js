@@ -29,19 +29,22 @@ sap.ui.define(
     return BaseController.extend("com.csti.controller.Detalle", {
       transcription: "",
       video: function(dato){
+        
         var element=document.getElementById("component---detalle--self_video");
         var exit=document.getElementById("component---detalle--conjunto");
-        if(dato =="element"){
+        if (dato == "element") {
           return element;
-        }else if(dato=="child"){
+        } else if (dato == "child") {
           const child = element.firstElementChild;
           return child;
-        }else if(dato=="src"){
-          const child =element.firstElementChild;
-          const src =child.srcObject;
+        } else if (dato == "src") {
+          const child = element.firstElementChild;
+          const src = child.srcObject;
           return src;
-        }else if(dato=="fullscreen"){
+        } else if (dato == "fullscreen") {
           return exit
+        } else if (dato == "header") {
+          return header
         }
         },
       onInit: function () {
@@ -80,11 +83,12 @@ sap.ui.define(
         let header = document.getElementById("component---detalle--itbOpciones--header").offsetHeight       
         let container = this.getView().byId("VBoxPrincipal").$().height();
   
-
+        
         if(Device.system.desktop){
+          this.getView().byId("detail").setShowNavButton(false);
           this.getView().byId("VboxMensajeria").setHeight((container - header) * 0.95 + "px");
           this.getView().byId("idChat").setHeight((container - header) * 0.75 + "px");
-          this.getView().byId("detail").setShowNavButton(true);
+          // this.getView().byId("detail").setShowNavButton(true);
           this.byId("AplicativoSplit").setMode("ShowHideMode");
           
         } 
@@ -93,13 +97,7 @@ sap.ui.define(
           this.getView().byId("idChat").setHeight((container - header) * 0.86 + "px");
           this.byId("AplicativoSplit").setMode("HideMode");
         }
-        
-        // this.validarNavegador();
-
-       
-     
-    
-       
+         
       this.postRequest(
         "/api/registroComunicacions/find",
         {
@@ -140,7 +138,15 @@ sap.ui.define(
         return result;
       },
       _NavBotonPrincipal: function () {
-        oRouter.navTo("Home");
+        if(this.getView().byId("VBoxCamara").getVisible()){
+          sap.m.MessageBox.confirm("La llamada aun sigue activa",{
+            title:"Alerta",
+            actions:["OK"]
+            
+          })
+        }else{
+          oRouter.navTo("Home");
+        }
       },
       _NavBotonDetail: function () {
           const tipo="navamp"
@@ -166,6 +172,7 @@ sap.ui.define(
           // this.getView().byId("cajaContainer").setJustifyContent("Center");
           //   this.byId("idCamera").setWidth("960");
           //   this.byId("idCamera").setHeight("600");
+          this.getView().byId("detail").setShowNavButton(true);
           this.byId("boxChat").setVisible(false);
           this.byId("minscreen").setVisible(true);
           this.byId("fullscreen").setVisible(false);
@@ -196,7 +203,7 @@ sap.ui.define(
      
         }
         if (!Device.system.phone) {
-          // this.byId("boxChat").setVisible(false);
+          this.getView().byId("detail").setShowNavButton(true);
           this.getView().byId("ampliarCamara").setVisible(true);
           this.byId("VBoxCamara").setWidth("60%");
           this.byId("VBoxCamara").setVisible(true);
@@ -305,7 +312,8 @@ sap.ui.define(
           videotw.createLocalVideoTrack().then((track) => {
             
             const localMediaContainer = document.getElementById(
-              "component---detalle--self_video"
+              // video principal
+              "component---detalle--video_user_2"
               // "application-telemedicinadoctor-Display-component---detalle--self_video"
             );
             
@@ -371,7 +379,11 @@ sap.ui.define(
             console.log("VALOR DEL TRACK.ATTACH", value);
           } else if (track.kind === "video") {
             document
-              .getElementById("application-telemedicinadoctor-Display-component---detalle--video_user_2")
+              .getElementById(
+                // camara pequeña
+                "component---detalle--self_video"
+              // "application-telemedicinadoctor-Display-component---detalle--video_user_2"
+              )
               .appendChild(track.attach());
           }
         });

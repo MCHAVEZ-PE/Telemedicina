@@ -26,7 +26,7 @@ sap.ui.define([
 			//calendar
 			var oModel = new JSONModel();
 			oModel.setData({
-				startDate: new Date("2020", "3", "1"),
+				startDate: new Date(),
 				appointments: [{
 					title: "Cita con Mauricio Chavez",
 					type: CalendarDayType.Type01,

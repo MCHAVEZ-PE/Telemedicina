@@ -9,7 +9,7 @@
     xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
     <SplitApp id="AplicativoSplit" initialDetail="detail" initialMaster="master" mode="HideMode">
         <detailPages>
-            <Page id="detail" navButtonPress="_NavBotonDetail" title="Chat" backgroundDesign= "Solid" showNavButton="true" class="sapUiStdPage">
+            <Page id="detail" navButtonPress="_NavBotonDetail" title="TELEMEDICINA - CHAT" backgroundDesign= "Solid" showNavButton="true" class="sapUiStdPage">
                 <headerContent>
                    
                     <Button
@@ -54,8 +54,8 @@
                                         <!-- <cam:Camera class="camera" id="idCamera" width="620" height="600" snapshot="pressCam" /> -->
                                         <!-- </VBox > -->
                                         <!-- <cam:Camera visible="false" class="" id="idCamera2" width="300" height="100" snapshot=".onSnapshot2" /> -->
-                                        <html:div id="self_video"  style="pointer-events:none;" width="1620" class="camera" height="1600"></html:div>
-                                        <html:div id="video_user_2" class="camera2"></html:div>
+                                        <html:div id="video_user_2"  style="pointer-events:none;" width="1620" class="camera" height="1600"></html:div>
+                                        <html:div id="self_video" class="camera2"></html:div>
                                         <HBox class="botonescamara" width="auto" height="auto" justifyContent="Center">
                                             <items>
                                                 <HBox justifyContent="Center" alignItems="Center" class="sapUiTinyMarginBegin">
@@ -127,7 +127,7 @@
                                                         </VBox>
                                                     </content>
                                                 </IconTabFilter>
-                                                <IconTabSeparator icon="" iconDensityAware="false" />
+                                                <!-- <IconTabSeparator icon="" iconDensityAware="false" />
                                                 <IconTabFilter icon="sap-icon://clinical-tast-tracker" iconColor="Positive" text="Antecedentes" 
                                                 design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true">
                                                     <content>
@@ -174,7 +174,7 @@
                                                         </Table>
                                                     </content>
                                                 </IconTabFilter>
-                                                <IconTabSeparator />
+                                                <IconTabSeparator /> -->
                     
                                             </items>
                                         </IconTabBar>
@@ -186,7 +186,8 @@
             </Page>
         </detailPages>
         <masterPages>
-            <Page id="master" title="Información" backgroundDesign="List" icon="sap-icon://action" class="sapUiStdPage" showFooter="false" showNavButton="true" navButtonPress="_NavBotonPrincipal">
+            <Page id="master" title="Información" backgroundDesign="List" icon="sap-icon://action" 
+            class="sapUiStdPage" showFooter="false" showNavButton="true" navButtonPress="_NavBotonPrincipal">
                 <content>
                     <List mode="SingleSelectMaster" width="100%" headerText="" footerText="" backgroundDesign="Solid" showSeparators="All" growing="false" growingThreshold="20" growingScrollToLoad="true" visible="true">
                     <items>
