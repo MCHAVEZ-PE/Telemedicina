@@ -1,0 +1,129 @@
+<core:FragmentDefinition
+xmlns:mvc="sap.ui.core.mvc"
+controllerName="com.csti.controller.Detalle"
+xmlns="sap.m"
+xmlns:core="sap.ui.core"
+xmlns:form="sap.ui.layout.form">
+<Dialog  title="Formulario Medico">
+	<beginButton>
+			<Button text="Guardar" type="Emphasized" press="handleDialogOkButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cerrar" press="cancelarDialog	"/>
+		</endButton>
+	<content>
+			<VBox visible="true">
+				<Table  id="tablaFormulaDialog" items="{path:'modeloFormula>/data'}">
+			 
+				<columns>
+					<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<header>
+						<Text text="Codigo" width="auto" wrapping="false" visible="true"/>
+						</header>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<header>
+						<Text text="Medicamento"/>
+						</header>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<header>
+						<Text text="Dosis"/>
+						</header>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<Text text="Frecuencia"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<Text text="Observación"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<Text text="Dias de Incapacidad"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<Text text="Diagnostico"/>
+					</Column >
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<Text text="Vigencia de Incapacidad"/>
+					</Column>
+					<Column/>
+					<Column/>
+				</columns>
+				<items>
+					<ColumnListItem type="Active">
+						<cells>          
+								<Text   text="{modeloFormula>codigo}"/>
+								<Text   text="{modeloFormula>medicamento}"/>
+								<Text text="{modeloFormula>dosis}"/>
+								<Text  text="{modeloFormula>frecuencia}"/>
+								<Text   text="{modeloFormula>observacion}"/>
+								<Text   text="{modeloFormula>dias}"/>
+								<Text   text="{modeloFormula>diagnostico}"/>
+								<Text   text="{modeloFormula>vigencia}"/>
+								<Button text="editar" press="editarDataForm"/>
+								<Button text="eliminar" press="eliminarDataForm" />
+							 
+						</cells>
+					</ColumnListItem>
+				 
+				</items>
+				</Table>
+			</VBox>
+	</content>
+</Dialog>
+
+<!-- <TableSelectDialog title="Formulario Medico" items="{
+			path : '/'
+			}">
+		<columns>
+					<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<header>
+						<Text text="Codigo" width="auto" wrapping="false" visible="true"/>
+						</header>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<header>
+						<Text text="Medicamento"/>
+						</header>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<header>
+						<Text text="Dosis"/>
+						</header>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<Text text="Frecuencia"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<Text text="Observación"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<Text text="Dias de Incapacidad"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<Text text="Diagnostico"/>
+					</Column >
+					<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+						<Text text="Vigencia de Incapacidad"/>
+					</Column>
+					<Column/>	 
+				</columns>
+	<ColumnListItem>
+		<cells>
+								<Text   value="dcodigo}"/>
+								<Text   value="dmedicamento}"/>
+								<Text value="ddosis}"/>
+								<Text  value="dfrecuencia}"/>
+								<Text   value="observacion}"/>
+								<Text   value="dias}"/>
+								<Text   value="diagnostico}"/>
+								<Text   value="vigencia}"/>
+								
+		</cells>
+	</ColumnListItem>
+
+</TableSelectDialog> -->
+<!-- </App> -->
+<!-- </mvc:View> -->
+
+</core:FragmentDefinition>

@@ -1,0 +1,59 @@
+/* .addResponsive{
+    justify-content: center;
+}
+ */
+
+.logoVideollamada{
+    z-index: +1;
+    top: 2%;
+}
+.botonescamara{
+    background-color: #757575;
+    padding:0px 15px;
+    border-radius: 15px;
+    opacity: 0.8;
+    z-index: 1;
+    bottom: 19%;
+}
+.camera{
+  position: relative;
+    z-index: -1;
+}
+.camera2{
+
+  position: absolute;
+  bottom: 10px;
+  left: 160px;
+}
+
+.logoVideollamada {
+    z-index: +1;
+    top: 14%;
+  }
+  .botonescamara {
+    background-color: #d1e0ee;
+    border-radius: 15px;
+    opacity: 0.2;
+    z-index: +1;
+    bottom: 19%;
+  }
+  .botonescamara:hover {
+    opacity: 1;
+  }
+  
+  .camera3 {
+    position: absolute;
+    bottom: 170px;
+    left: 195px;
+    /*background-color: black; */
+  }
+  .feedIconColorClassPaciente>div>div>figure>span {
+    color: purple;
+  }
+  
+  .feedIconColorClassDoctor>div>div>figure>span {
+      color: green;
+    }
+  
+    
+  

@@ -1,0 +1,212 @@
+{
+    "static":{
+ 
+    },
+    "combined":{
+       "telemedicina":[
+          {
+             "ID":"ABC-0001",
+             "fecha":"2020/03/27",
+             "paciente":"Jose Carlos",
+             "especialidad":"Cardiologia",
+             "estado":"En espera",
+             "prioridad":"Alta",
+             "atendido":"Mario Soto"
+          },
+          {
+             "ID":"CCB-0002",
+             "fecha":"2020/03/27",
+             "paciente":"Luis Miguel",
+             "especialidad":"Podologia",
+             "estado":"Atendido",
+             "prioridad":"Media",
+             "atendido":"Perez Alvela"
+          },
+          {
+             "ID":"SWA-0003",
+             "fecha":"2020/03/27",
+             "paciente":"luis  Angel",
+             "especialidad":"Terapia",
+             "estado":"Atendido",
+             "prioridad":"Alta",
+             "atendido":"Maria  Rosa"
+          },
+          {
+             "ID":"QQA-0004",
+             "fecha":"2020/03/27",
+             "paciente":"Pepe Perez",
+             "especialidad":"Cardiologia",
+             "estado":"Atendido",
+             "prioridad":"Media",
+             "atendido":"Mario Soto"
+          },
+          {
+             "ID":"ERR-0005",
+             "fecha":"2020/03/27",
+             "paciente":"Mauricio Chavez",
+             "especialidad":"Traumatologia",
+             "estado":"Cerrado",
+             "prioridad":"Ninguna",
+             "atendido":"Grabriel Lopez"
+          },
+          {
+             "ID":"OPD-0006",
+             "fecha":"2020/03/27",
+             "paciente":"Luis Felipe",
+             "especialidad":"Terapia",
+             "estado":"En espera",
+             "prioridad":"Media",
+             "atendido":"Maria Rosa"
+          }
+       ],
+       "atenciones": [
+         {
+            "ID":"ABC-0001",
+            "fecha":"2020/04/01",
+            "paciente":"Luis Enrique",
+            "especialidad":"Cardiologia",
+            "estado":"Atendido",
+            "prioridad":"Alta"
+         },
+         {
+            "ID":"CCB-0002",
+            "fecha":"2020/03/30",
+            "paciente":"Marco Miguel",
+            "especialidad":"Podologia",
+            "estado":"Atendido",
+            "prioridad":"Media",
+            "atendido":"Perez Alvela"
+         },
+         {
+            "ID":"QQ3-0003",
+            "fecha":"2020/03/31",
+            "paciente":"Juan Andrade",
+            "especialidad":"Neumologia",
+            "estado":"En espera",
+            "prioridad":"Alta",
+            "atendido":"Maria  Rosa"
+         },
+         {
+            "ID":"EEW-0004",
+            "fecha":"2020/03/27",
+            "paciente":"Jose Perez",
+            "especialidad":"Cardiologia",
+            "estado":"En espera",
+            "prioridad":"Alta",
+            "atendido":"Mario Soto"
+         },
+         {
+            "ID":"QQW-0005",
+            "fecha":"2020/03/28",
+            "paciente":"Edgar Chavez",
+            "especialidad":"Traumatologia",
+            "estado":"Cerrado",
+            "prioridad":"Ninguna",
+            "atendido":"Grabriel Lopez"
+         },
+         {
+            "ID":"DDQ-0006",
+            "fecha":"2020/03/26",
+            "paciente":"Angela Leiva",
+            "especialidad":"Neurologia",
+            "estado":"En espera",
+            "prioridad":"Alta",
+            "atendido":"Maria Rosa"
+         }
+      ],
+      "historico":[
+         {
+            "ID":"AQQ-0001",
+            "fecha":"2020/03/27",
+            "paciente":"Jose Carlos",
+            "especialidad":"Cardiologia",
+            "estado":"Finalizado",
+            "prioridad":"Ninguna",
+            "atendido":"Mario Soto"
+         },
+         {
+            "ID":"ABX-0002",
+            "fecha":"2020/03/27",
+            "paciente":"Luis Miguel",
+            "especialidad":"Podologia",
+            "estado":"Finalizado",
+            "prioridad":"Ninguna",
+            "atendido":"Perez Alvela"
+         },
+         {
+            "ID":"QQA-0003",
+            "fecha":"2020/03/27",
+            "paciente":"luis  Angel",
+            "especialidad":"Terapia",
+            "estado":"Finalizado",
+            "prioridad":"Ninguna",
+            "atendido":"Maria  Rosa"
+         },
+         {
+            "ID":"QQR-0004",
+            "fecha":"2020/03/27",
+            "paciente":"Pepe Perez",
+            "especialidad":"Cardiologia",
+            "estado":"Finalizado",
+            "prioridad":"Ninguna",
+            "atendido":"Mario Soto"
+         },
+         {
+            "ID":"OPP-0005",
+            "fecha":"2020/03/27",
+            "paciente":"Mauricio Chavez",
+            "especialidad":"Traumatologia",
+            "estado":"Finalizado",
+            "prioridad":"Ninguna",
+            "atendido":"Grabriel Lopez"
+         },
+         {
+            "ID":"TTR-0006",
+            "fecha":"2020/03/27",
+            "paciente":"Luis Felipe",
+            "especialidad":"Terapia",
+            "estado":"Finalizado",
+            "prioridad":"Ninguna",
+            "atendido":"Maria Rosa"
+         }
+      ],
+      "antecedentes":[
+         {
+            "ticket":"ABC-0001",
+            "fecha":"Wed Apr 15 2020 00:48:03 GMT-0500 (hora estándar de Colombia)",
+            "especialidad":"Terapia",
+            "diagnostico":"Lesión el el tobillo derecho mientras jugaba al  fútbol"
+         },{
+            "ticket":"AYC-0002",
+            "fecha":"2020-04-11T04:47:19.029Z",
+            "especialidad":"Cardiologia",
+            "diagnostico":"Me agito muy rapido,cuando hago deporte"
+         },{
+            "ticket":"KLC-0003",
+            "fecha":"2020-04-10T04:47:19.029Z",
+            "especialidad":"Terapia",
+            "diagnostico":"Lesión el el tobillo derecho mientras jugaba al  fútbol"
+         },{
+            "ticket":"MVW-0004",
+            "fecha":"2020-04-12T04:47:19.029Z",
+            "especialidad":"Otorrino",
+            "diagnostico":"Tengo problemas respiratorios"
+         }, {
+            "ticket":"CBA-0005",
+            "fecha":"2020-04-13T04:47:19.029Z",
+            "especialidad":"Terapia",
+            "diagnostico":"Lesión el el tobillo derecho mientras jugaba al  fútbol"
+         },{
+            "ticket":"QLZ-0006",
+            "fecha":"2020-04-14T04:47:19.029Z",
+            "especialidad":"Cardiologia",
+            "diagnostico":"Dolor en el pecho"
+         },{
+            "ticket":"PZP-0007",
+            "fecha":"2020-04-15T04:47:19.029Z",
+            "especialidad":"Dermatologias",
+            "diagnostico":"Tengo algunas manchas en el cuerpo"
+         }
+      ]
+    }
+ }

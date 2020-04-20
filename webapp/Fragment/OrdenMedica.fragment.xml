@@ -1,0 +1,185 @@
+<core:FragmentDefinition
+xmlns:mvc="sap.ui.core.mvc"
+controllerName="com.csti.controller.Detalle"
+xmlns="sap.m"
+xmlns:core="sap.ui.core"
+xmlns:form="sap.ui.layout.form">
+<!-- <mvc:View
+displayBlock="true" 
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m"
+xmlns:form="sap.ui.layout.form"
+> -->
+<!-- <App> -->
+
+<!-- <Page  title="Generar Receta" showHeader="true">
+    <content> -->
+		<!-- <Label text="asdasdasdsa"></Label> -->
+        	<form:Form width="100%" editable="true" visible="true">
+								 
+										<form:toolbar>
+											<Toolbar>
+												<Title text="Orden Medica"></Title>
+												<ToolbarSpacer />
+
+													<!-- <Button icon="sap-icon://save"  />	 -->
+													<Button icon="sap-icon://add" id="dialogOrden" press="abrirDialogOrden" />
+													<!-- <Button icon="sap-icon://delete"  /> -->
+													
+											</Toolbar>
+										</form:toolbar>
+										<form:formContainers>
+											<form:FormContainer visible="true">
+													<form:formElements>
+														<form:FormElement label="Tipo de prestación" visible="true">
+														
+															<form:fields>
+																<Input type="Text" id="ordTipo" visible="true" width="auto"  />
+															</form:fields>
+														</form:FormElement>
+														<form:FormElement label="codigo de prestación">
+															<!-- <form:label>
+																<Label text="Especialidad" />
+															</form:label> -->
+															<form:fields>
+																<Input id="ordPrestacion" />
+															</form:fields>
+
+														</form:FormElement>
+														<form:FormElement label="Descripcion">	
+															<form:fields>
+																<TextArea id="ordDescripcion" rows="3"  />
+															</form:fields>
+														</form:FormElement>
+														<form:FormElement label="Cantidad">
+															 
+															<form:fields>
+																<Input id="ordCant"/>
+															</form:fields>
+														</form:FormElement>
+														
+													
+													</form:formElements>
+											</form:FormContainer>
+											<form:FormContainer visible="true">
+												<form:formElements>
+												
+														<form:FormElement label="vigencia de Orden Clínica" visible="true">
+													 
+														<form:fields>
+															<Input type="Text" id="ordVigencia" visible="true" width="auto"  />
+														</form:fields>
+													</form:FormElement>
+
+													<form:FormElement label="Unidad Gestora">
+							
+														<form:fields>
+															<Input id="ordUnGestora" />
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement label="Campo Adicional">
+														<form:fields>
+														<Input id="ordCampAdicional"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement label="Diagnostico">
+														<form:fields>
+														<HBox direction="Column">
+															<TextArea id="ordDiagnostico" rows="3" width="100%"/>
+															<HBox justifyContent="End">
+																<items>
+																	<Switch id="flagDiagnostico" change="flagDiagnostico" state="true">
+																		<layoutData>
+																			<FlexItemData growFactor="1"></FlexItemData>
+																		</layoutData>
+																	</Switch>
+																	<Button text="Iniciar" id="btnIniciargrab" press="iniciargrab"></Button>
+																	<Button text="Detener" id="btnDetenergrab" press="detenergrab"></Button>
+																	<Button text="Limpiar" press=".limpiarCampos('Diagnostico')"></Button>
+																</items>
+															</HBox>
+														</HBox>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement>
+														<form:fields>
+															<Button type="Ghost" text="Anadir a Orden" press="grabarOrden"></Button>
+														</form:fields>
+													</form:FormElement>
+													</form:formElements>
+											</form:FormContainer>
+										</form:formContainers>
+										<form:layout>
+											<!-- <form:ColumnLayout columnsM="2" columnsL="2" /> -->
+
+											<form:ResponsiveGridLayout adjustLabelSpan="false" 
+											columnsL="2" labelSpanL="2" columnsM="1" 
+											labelSpanM="2" labelSpanS="12"/>
+										</form:layout>
+			</form:Form>
+				<VBox  >
+				<Table  id="tablaOrden"  >
+				<!-- <core:Title text="dasdasdsa" ></core:Title> -->
+
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Orden Medico"/>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://save" press="generarReceta"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Codigo de Prestación "/>
+					</Column>
+					<Column>
+						<Text text="Tipo de Prestación"/>
+					</Column>
+					<Column>
+						<Text text="Descripcion"/>
+					</Column>
+					<Column>
+						<Text text="Cantidad"/>
+					</Column>
+					<Column>
+						<Text text="Vigencia de OC"/>
+					</Column>
+					<Column>
+						<Text text="Unidad Gestora"/>
+					</Column>
+					<Column>
+						<Text text="Campo Adicional"/>
+					</Column>
+					<Column>
+						<Text text="Diagnostico"/>
+					</Column>
+					<Column width="50px"/>	
+					<Column width="50px"/>
+					<Column width="20px"/>	
+				</columns>
+				<items>
+					<!-- <ColumnListItem>
+						<cells>
+								<Input enabled="false" value="{tipo}"/>
+								<Input enabled="false" value="{codigo}"/>
+								<TextArea enabled="false" value="{descripcion}"/>
+								<Input enabled="false" value="{cantidad}"/>
+								<Input enabled="false" value="{vigencia}"/>
+								<Input enabled="false" value="{unidadGestora}"/>
+								<Input enabled="false" value="{campoAdicional}"/>
+								<TextArea enabled="false" value="{Diagnostico}"/>
+								<Button icon="sap-icon://edit" id="btnEditarx" press="editarCampos"  />
+								<Button  icon="sap-icon://save" id="btnGuardarx" press="guardarEditado"  visible="false"/> 
+								
+						</cells>
+					</ColumnListItem> -->
+				</items>
+				</Table>
+			</VBox>
+    <!-- </content>
+</Page> -->
+
+<!-- </App> -->
+<!-- </mvc:View> -->
+
+</core:FragmentDefinition>

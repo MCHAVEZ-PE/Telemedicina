@@ -1,0 +1,371 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.csti.controller.Home" 
+xmlns:core="sap.ui.core"
+xmlns:unified="sap.ui.unified"
+xmlns="sap.m">
+    <Page showHeader="true" title=""   showFooter="false" showNavButton="false">
+        <content>
+            <IconTabBar
+                expandable="false" expanded="true"
+                visible="true"
+            >
+                <items>
+                    <IconTabFilter
+                        
+                        icon="sap-icon://activity-2"
+                 
+                        key=""
+                        text="Pendientes"
+                    
+                    >
+                        <content>
+                            <HBox justifyContent="SpaceBetween" id="boxTelemedicina" class="direcTelemedicina"  direction="Row">
+                                <items>
+                                    <!-- <VBox justifyContent="Start" class="sapUiSmallMarginTop">
+                                        <Label text="Cita más Proxima hoy" class="titCita" /> 
+                                        <GenericTile  press="navChat"  class="sapUiTinyMarginBegin sapUiSmallMarginTop" header="Cita con Mauricio Chavez">
+                                            <TileContent footer="Horario de atencion">
+                                                    <content>
+                                                        <NumericContent value="5:30" scale="PM"  />
+                                                    </content>
+                                            </TileContent>
+                                        </GenericTile>
+                                        <GenericTile press="navChat" class="sapUiTinyMarginBegin sapUiSmallMarginTop" header="Revisión de Analisis con Luis Perez">
+                                            <TileContent footer="Horario de atencion">
+                                                    <content>
+                                                        <NumericContent value="8:30" scale="PM"  />
+                                                    </content>
+                                            </TileContent>
+                                        </GenericTile>
+                                    </VBox> -->
+                       
+                           <Table width="auto" id="tablePacientes"  items="{path:'/combined/telemedicina'}" 
+                                    noDataText="No data" mode="None" showSeparators="All" growing="true" 
+                                    growingScrollToLoad="true" class="sapUiResponsiveMargin"
+                                     >
+                                   
+                                    <headerToolbar>
+                                        <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                                            <content>
+                                                <Title text="Atenciones Virtuales" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                                <ToolbarSpacer width=""/>
+                                                </content>
+                                        </OverflowToolbar>
+                                    </headerToolbar>
+                                     <infoToolbar>
+                                        <OverflowToolbar>
+                                            <Text wrapping="false"  text="Lista de pacientes atendidos por Telemedicina"/>
+                                          </OverflowToolbar>
+                                    </infoToolbar>
+                                    <columns>
+                                        <Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+                                         mergeDuplicates="false">
+                                            <header>
+                                           <Title text="Número de episodio" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                        </header>
+                                            <footer/>
+                                        </Column>
+                                        <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                            <header>
+                                         <Text text="Fecha" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            </header>
+                                            <footer/>
+                                        </Column>
+                                        <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                            <header>
+                                         <Text text="Paciente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header> 
+                                        </Column>
+                                        <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                            <header>
+                                                <Text text="Especialidad" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            </header> 
+                                        </Column>
+                                        <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                            <header>
+                            <Text text="Estado" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            </header>
+    
+                                        </Column>
+                                      
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem type="Navigation" press="onRowPress">
+                                            <cells>
+                                                 <Text text="{ID}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                <Text text="{path:'fecha' , formatter:'.dateTimeFormatter'}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                <Text text="{paciente}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                <Text text="{especialidad}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                <Text text="{estado}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                <!-- <Label text="{prioridad}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/> -->
+                                                <!-- <Label text="{atendido}" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/> -->
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                           </Table>     
+                             </items>
+                            </HBox>
+                        </content>
+                    </IconTabFilter>
+                    <!-- <IconTabSeparator/> -->
+                    <!-- <IconTabFilter
+                        icon="sap-icon://clinical-tast-tracker"
+                        key=""
+                        text="Pacientes"
+                    >
+                        <content>
+                            <Table width="auto" id="tablePacientes1"  items="{path:'/combined/atenciones'}" 
+                                        noDataText="No data" mode="MultiSelect" showSeparators="All" growing="true" 
+                                        growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+
+                                           <infoToolbar>
+                                        <OverflowToolbar>
+                                            <Text wrapping="false"  text="Lista de Todos los pacientes"/>
+                                          </OverflowToolbar>
+                                    </infoToolbar>
+                                    
+                                        <headerToolbar>
+                                            <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                                                <content>
+                                                    <Title text="Pacientes" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                                    <ToolbarSpacer width=""/>
+                                                     <OverflowToolbarButton tooltip="Añadir Telemedicina" type="Transparent" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true" press="agregarPaciente" iconDensityAware="false"/>
+                                                      </content>
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                            <Title text="#Tickets" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                            </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                            <Text text="Fecha" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                            <Text text="Paciente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Especialidad" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                <Text text="Estado" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                <Text text="Prioridad" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                        
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Inactive" >
+                                                <cells>
+                                                <Text text="{ID}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{fecha}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{paciente}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{especialidad}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{estado}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Label text="{prioridad}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                  </cells>
+                                            </ColumnListItem>
+                                        </items>
+                            </Table>     
+                        </content>
+                    </IconTabFilter> -->
+
+                     <IconTabSeparator
+                        iconDensityAware="true"
+                        visible="true"
+                    />
+                    <IconTabFilter
+                        count=""
+                        design="Vertical"
+                        icon="sap-icon://calendar"
+                        iconColor="Default"
+                        iconDensityAware="true"
+                        showAll="false"
+                        visible="true"
+                        enabled="true"
+                        key=""
+                        text="Calendario"
+                        textDirection="Inherit"
+                    >
+                        <content>
+                            
+                            <VBox class="sapUiSmallMargin">
+                                        <SinglePlanningCalendar
+                                            id="SPC1"
+                                            class="sapUiSmallMarginTop"
+                                            title= "Calendario Medico"
+                                            appointmentSelect="verInfoCita"
+                                            headerDateSelect="setFechaActual"
+                                            appointmentDrop="cambiarHorarioCita"
+
+                                            appointmentCreate="handleAppointmentCreateDnD"
+                                            appointmentResize="handleAppointmentResize"
+                                            startDateChange="cambiarelhorario"
+                                            viewChange="handleViewChange"
+                                            moreLinkPress="handleMoreLinkPress"
+
+                                            startDate="{path: '/startDate'}"
+                                            enableAppointmentsDragAndDrop="{settings>/enableAppointmentsDragAndDrop}"
+                                            enableAppointmentsResize="{settings>/enableAppointmentsResize}"
+                                            enableAppointmentsCreate="{settings>/enableAppointmentsCreate}"
+                                            stickyMode="{settings>/stickyMode}"
+                                            appointments="{path: '/appointments'}">
+                                            <actions>
+                                                <!-- <Button id="addNewAppointment" icon="sap-icon://add" press="crearCita" tooltip="Crear una nueva cita" /> -->
+                                                <!-- <Button id="legendButton" icon="sap-icon://legend" press="handleOpenLegend" tooltip="Open SinglePlanningCalendar legend" /> -->
+                                            </actions>
+                                            <views>
+                                                <SinglePlanningCalendarMonthView key="MonthView" title="Mes" />
+                                                <!-- <SinglePlanningCalendarWorkWeekView key="WorkWeekView" title="Semana laboral" /> -->
+                                                <SinglePlanningCalendarWeekView key="WeekView" title="Semana" />
+                                                <SinglePlanningCalendarDayView key="DayView" title="Dia" />
+                                            </views>
+                                            <appointments>
+                                                <unified:CalendarAppointment
+                                                    
+                                                    title= "{title}"
+                                                    type= "Type05"
+                                                    icon= "{icon}"
+                                                    startDate= "{startDate}"
+                                                    endDate= "{endDate}">
+                                                </unified:CalendarAppointment>
+                                            </appointments>
+                                        </SinglePlanningCalendar>
+                            </VBox>
+                            
+                        </content>
+                    </IconTabFilter>
+                     <IconTabSeparator
+                        iconDensityAware="true"
+                        visible="true"
+                    />
+                    <IconTabFilter
+                        count=""
+                        design="Vertical"
+                        icon="sap-icon://customer-history"
+                        iconColor="Default"
+                        iconDensityAware="true"
+                        showAll="false"
+                        visible="true"
+                        enabled="true"
+                        key=""
+                        text="Historico"
+                        textDirection="Inherit"
+                    >
+                        <content>
+                            <Table width="auto" id="tablePacientes2"  items="{path:'/combined/historico'}" 
+                                        noDataText="No data" mode="None" showSeparators="All" growing="true" 
+                                        growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+                                            <infoToolbar>
+                                        <OverflowToolbar>
+                                            <Text wrapping="false"  text="Lista de Pacientes atendidos por Telemedicina y Presencial"/>
+                                          </OverflowToolbar>
+                                    </infoToolbar>
+                                        <headerToolbar>
+                                            <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                                                <content>
+                                                    <Title text="Todas las Atenciones" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                                    <ToolbarSpacer width=""/>
+                                                    <!-- <OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                                    <OverflowToolbarButton text="Filter" type="Transparent" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                                    <OverflowToolbarButton text="Group" type="Transparent" icon="sap-icon://group-2" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/> -->
+                                                    <!-- <OverflowToolbarButton text="Settings" type="Transparent" icon="sap-icon://action-settings" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/> -->
+                                                </content>
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                            <Title text="Numero de episodio" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                            </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                            <Text text="Fecha" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                            <Text text="Paciente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Especialidad" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                  <Text text="Estado" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                              <Text text="Prioridad" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <!-- <Column width="10%" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                <Text text="Atendido por" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            </header>
+                                                <footer/>
+                                            </Column> -->
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Inactive">
+                                                <cells>
+                                                <Text text="{ID}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{fecha}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{paciente}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{especialidad}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{estado}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Label text="{prioridad}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <!-- <Label text="{atendido}" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/> -->
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                            </Table>     
+                        </content>
+                    </IconTabFilter>
+                </items>
+ 
+            </IconTabBar>
+                              
+            </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

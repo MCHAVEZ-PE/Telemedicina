@@ -1,0 +1,242 @@
+<mvc:View controllerName="com.csti.controller.Detalle" 
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:form="sap.ui.layout.form" 
+    xmlns:layout="sap.ui.layout" 
+    xmlns:cam="openui5.camera" 
+    xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:core="sap.ui.core" 
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <SplitApp id="AplicativoSplit" initialDetail="detail" initialMaster="master" mode="HideMode">
+        <detailPages>
+            <Page id="detail" navButtonPress="_NavBotonDetail" title="Chat" backgroundDesign= "Solid" showNavButton="true" class="sapUiStdPage">
+                <headerContent>
+                   
+                    <Button
+						id="ampliarCamara"
+						icon="sap-icon://full-screen"
+						press="ampliarCamara" 
+						visible="false"/>
+                        <Button
+						id="ampliar"
+						icon="sap-icon://navigation-right-arrow"
+						press="ampliar" 
+						visible="false"
+						tooltip="ampliar"/>
+                    <Button id="comenzarVideollamada" 
+                    icon="sap-icon://video" 
+                    tooltip="Iniciar Video"
+                    press="activarCam" 
+                    enabled="true" />
+                    <Button id="idGuardarCita" 
+                    icon="sap-icon://complete" 
+                    press="guardarCita" 
+                    enabled="true" />
+                </headerContent>
+                <content>
+
+                    <!-- central, idcamera width and heig -->
+                    <!-- id="cajaContainer" -->
+                    <HBox width="100%" height="100%">
+                            <items>
+
+                                <VBox id="VBoxCamara" width="100%" height="100%" visible="false" 
+                                justifyContent="Center" alignItems="Center">
+                                    <items>
+                                    <VBox id="conjunto" justifyContent="SpaceBetween" alignItems="Center">
+                                        <HBox id="logoVideollamada" class="logoVideollamada" width="100%" height="auto" justifyContent="Center" alignItems="Stretch">
+                                            <items>
+                                                <!-- <core:Icon src="sap-icon://sap-ui5" color="#031E48"></core:Icon> -->
+                                                <!-- <Title text="VIDEOLLAMADA DE TELEMEDICINA" titleStyle="H6"/> -->
+                                            </items>
+                                        </HBox>
+                                        <!-- <VBox width="100%" height="100%" justifyContent="Center" alignItems="Stretch"> -->
+                                        <!-- <cam:Camera class="camera" id="idCamera" width="620" height="600" snapshot="pressCam" /> -->
+                                        <!-- </VBox > -->
+                                        <!-- <cam:Camera visible="false" class="" id="idCamera2" width="300" height="100" snapshot=".onSnapshot2" /> -->
+                                        <html:div id="self_video"  style="pointer-events:none;" width="1620" class="camera" height="1600"></html:div>
+                                        <html:div id="video_user_2" class="camera2"></html:div>
+                                        <HBox class="botonescamara" width="auto" height="auto" justifyContent="Center">
+                                            <items>
+                                                <HBox justifyContent="Center" alignItems="Center" class="sapUiTinyMarginBegin">
+                                                    <core:Icon src="sap-icon://video" color="#031E48" size="30px"></core:Icon>
+                                                    <Switch id="activarDesactivarSwitchCamara" state="true" customTextOn=" " customTextOff=" ">
+                                                        <layoutData>
+                                                            <FlexItemData growFactor="1" />
+                                                        </layoutData>
+                                                    </Switch>
+                                                </HBox>
+                                                <HBox justifyContent="Center" alignItems="Center">
+                                                    <core:Icon src="sap-icon://microphone" color="#031E48" size="30px"></core:Icon>
+                                                    <Switch id="activarDesactivarSwitchMicrophone" state="true" customTextOn=" " customTextOff=" ">
+                                                        <layoutData>
+                                                            <FlexItemData growFactor="1" />
+                                                        </layoutData>
+                                                    </Switch>
+                                                </HBox>
+                                                <Button id="reducirCamara" icon="sap-icon://exit-full-screen" type="Transparent" press="reducirCamara"  visible="false"/>
+                                                <Button id="cancelarLlamada" icon="sap-icon://call" type="Reject"
+                                                 class="sapUiTinyMarginEnd"/>
+                                            </items>
+                                        </HBox>
+                                    </VBox>
+                                    </items>
+                                </VBox>
+                        
+                                <!-- </VBox> -->
+                                <VBox id="VBoxPrincipal" width="100%" height="100%" 
+                                visible="true" fitContainer="false" displayInline="false">
+                                    <items>
+                                        <IconTabBar expandable="false" id="itbOpciones" expanded="true"  visible="true" selectedKey="Ok">
+                                            <items>
+                                                <IconTabFilter icon="sap-icon://message-popup" key="Videollamada" iconColor="Neutral" text="Video Llamada" design="Vertical" showAll="false"   visible="true">
+                                                    <content>
+                                                       <VBox id="VboxMensajeria"  width="100%" justifyContent="SpaceBetween">
+                                                        <VBox justifyContent="SpaceBetween"  id="idChat"
+                                                         width="100%" 
+                                                        direction="Column"
+                                                        height="100%" visible="true">
+                                                            <items>
+                                                                    <!-- <items> -->
+                                                                        <ScrollContainer
+                                                                        width="100%"  
+                                                                        height="100%" 
+                                                                        vertical="true">
+                                                                            <List width="100%" id="chatroom"  growing="false"  items="{path:'/'}" growingThreshold="20" growingScrollToLoad="false" backgroundDesign="Solid">
+                                                                                <items>
+                                                                                    <FeedListItem 
+                                                                                    icon="{= ${estado} === '1' ? 'sap-icon://doctor' : 'sap-icon://supplier'}"
+                                                                                    sender="{usuarioRegistro}" 
+                                                                                    text="{mensaje}"
+                                                                                    info="Enviado" timestamp="{path: 'fechaEnvio', formatter: '.dateTimeFormatter'}" />                                                                        </items>
+                                                                            </List>
+
+
+                                                                        </ScrollContainer>
+                                                                        <FeedInput showIcon="true"  
+                                                                            placeholder="Alguna recomendacion para el paciente"  
+                                                                            id="fImensaje"
+                                                                            post="envioMensaje" 
+                                                                            buttonTooltip="Submit" 
+                                                                            class="sapUiTinyMargin sapUiForceWidthAuto" />
+
+                                                                    <!-- </items> -->
+                                                                <!-- </VBox> -->
+                                                            </items>
+                                                        </VBox>
+                                                        </VBox>
+                                                    </content>
+                                                </IconTabFilter>
+                                                <IconTabSeparator icon="" iconDensityAware="false" />
+                                                <IconTabFilter icon="sap-icon://clinical-tast-tracker" iconColor="Positive" text="Antecedentes" 
+                                                design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true">
+                                                    <content>
+                                                        <Table width="auto" items="{path:'modeloAntecedentes>/combined/antecedentes'}" id="tablaAntecedentes" mode="None" showSeparators="All" class="sapUiResponsiveMargin">
+                                                            <infoToolbar />
+                                                            <headerToolbar />
+                                                            <columns>
+                                                                <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                                    <header>
+                                                                        <Text text="Codigo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                                                    </header>
+                                                
+                                                                </Column>
+                                                                <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                                    <header>
+                                                                        <Text text="Fecha" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                                                    </header>
+                                            
+                                                                </Column>
+                                                                <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                                    <header>
+                                                                        <Text text="Especialidad" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                                                    </header>
+                            
+                                                                </Column>
+                                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Block" mergeDuplicates="false">
+                                                                    <header>
+                                                                        <Text text="Diagnostico" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                                                    </header>
+
+                                                                </Column>
+                                                            </columns>
+                                                            <items>
+                                                                <ColumnListItem type="Active">
+                                                                    <cells>
+                                                                        <Text text="{modeloAntecedentes>ticket}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                                                        <Text text="{path:'modeloAntecedentes>fecha', formatter:'.dateTimeFormatter'}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                                                        <Text text="{modeloAntecedentes>especialidad}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                                                        <Text wrapping="true" maxLines="8" text="{modeloAntecedentes>diagnostico}"  />
+                                                                    </cells>
+                                                                </ColumnListItem>
+                                                        
+                                                            </items>
+                                                        </Table>
+                                                    </content>
+                                                </IconTabFilter>
+                                                <IconTabSeparator />
+                    
+                                            </items>
+                                        </IconTabBar>
+                                    </items>
+                                </VBox>
+                            </items>
+                    </HBox>
+                </content>
+            </Page>
+        </detailPages>
+        <masterPages>
+            <Page id="master" title="Información" backgroundDesign="List" icon="sap-icon://action" class="sapUiStdPage" showFooter="false" showNavButton="true" navButtonPress="_NavBotonPrincipal">
+                <content>
+                    <List mode="SingleSelectMaster" width="100%" headerText="" footerText="" backgroundDesign="Solid" showSeparators="All" growing="false" growingThreshold="20" growingScrollToLoad="true" visible="true">
+                    <items>
+                    <CustomListItem>
+             
+                    <form:Form>
+                    <form:formContainers>
+                    <form:FormContainer>
+                        <form:formElements>
+                        <form:FormElement>
+                            <form:fields>
+                                <VBox direction="Row" justifyContent="Start">
+                                <Text text="Nombre :" textDirection="LTR"></Text>
+                                <Text text=" Juan Carlos"></Text>
+                                </VBox >
+                                <VBox direction="Row" justifyContent="Start">
+                                <Text text="Peso :" textDirection="LTR"></Text>
+                                <Text text=" 80 kg."></Text>
+                                </VBox > 
+                                <VBox direction="Row" justifyContent="Start">
+                                <Text text="Edad :" textDirection="LTR"></Text>
+                                <Text text=" 25"></Text>
+                                </VBox>
+                                <VBox direction="Row" justifyContent="Start">
+                                <Text text="Fecha Nacimiento :" textDirection="LTR"></Text>
+                                <Text text=" 1995-10-11"></Text>
+                                </VBox>
+                                  <VBox direction="Column" justifyContent="Start">
+                                <Text text="Observación :" textDirection="LTR" wrapping="false"></Text>
+                                <Text wrapping="true" text="Dolor en el tobillo izquierdo,  cuando jugaba al futbol"></Text>
+                                </VBox>
+                                
+                            </form:fields>
+                        </form:FormElement>
+                        </form:formElements>
+                    </form:FormContainer>
+                    </form:formContainers>
+                    <form:layout>
+                        <form:ResponsiveGridLayout  columnsM="1" columnsL="">
+                        </form:ResponsiveGridLayout>
+                    </form:layout>
+                    </form:Form>
+                           </CustomListItem>
+            
+                         </items>
+                    </List>
+         
+                </content>
+      
+            </Page>
+        </masterPages>
+    </SplitApp>
+</mvc:View>

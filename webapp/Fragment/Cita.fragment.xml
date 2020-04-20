@@ -1,0 +1,64 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:l="sap.ui.layout"
+		xmlns:f="sap.ui.layout.form"
+		xmlns:core="sap.ui.core">
+	<Dialog title="Title" id="dialogFrag">
+		<beginButton>
+			<Button text="OK" type="Emphasized" press="handleDialogOkButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="cancelarDialog	"/>
+		</endButton>
+		<l:VerticalLayout
+				class="sapUiContentPadding"
+				width="100%">
+			<f:SimpleForm
+					id="appointmentCreateForm"
+					editable="true"
+					layout="ResponsiveGridLayout"
+					singleContainerFullSize="false">
+				<Label text="Titulo" labelFor="appTitle"/>
+				<Input id="appTitle" maxLength="255"/>
+				<Label text="Descripcion" labelFor="inputInfo"/>
+				<Input id="moreInfo" maxLength="255"/>
+				<Label text="Inicio" labelFor="startDate"/>
+				<DateTimePicker
+						id="DTPStartDate"
+						required="true"
+						visible="{= !${allDay>/allDay}}"
+						change="handleDateTimePickerChange"
+						
+						value=""/>
+				<!-- <DateTimePicker
+						id="DPStartDate"
+						required="true"
+						visible="{= ${allDay>/allDay}}"
+						change="handleDatePickerChange"/> -->
+				<Label text="Fin" labelFor="endDate"/>
+				<DateTimePicker
+						id="DTPEndDate"
+						required="true"
+						visible="{= !${allDay>/allDay}}"
+						change="handleDateTimePickerChange"/>
+				<!-- <DateTimePicker
+						id="DPEndDate"
+						required="true"
+						visible="{= ${allDay>/allDay}}"
+						change="handleDatePickerChange"/> -->
+				<CheckBox
+						id="allDay"
+						text="todo el dia"
+						selected="{allDay>/allDay}"
+						select="handleCheckBoxSelect"/>
+				<Label text="Type" labelFor="appType"/>
+				<Select
+						id="appType"
+						visible="false"
+						items="{/supportedAppointmentItems}">
+					<core:Item key="{type}" text="{text}" />
+				</Select>
+			</f:SimpleForm>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

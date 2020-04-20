@@ -1,0 +1,163 @@
+<core:FragmentDefinition
+xmlns:mvc="sap.ui.core.mvc"
+controllerName="com.csti.controller.Detalle"
+xmlns="sap.m"
+xmlns:core="sap.ui.core"
+xmlns:form="sap.ui.layout.form">
+
+			<HBox direction="Column" width="100%" >
+				<form:Form width="100%" editable="true" visible="true" >						 
+											<form:toolbar>
+												<Toolbar>
+													<Title text="Formula Medica"></Title>
+													<ToolbarSpacer />
+
+														<!-- <Button icon="sap-icon://save"  />	 -->
+														<Button icon="sap-icon://add" id="dialogFormula"  press="abrirDialogFormula" />
+														<!-- <Button icon="sap-icon://delete"  /> -->
+														
+												</Toolbar>
+											</form:toolbar>
+												<form:formContainers>
+													<form:FormContainer visible="true">
+															<form:formElements>
+																<form:FormElement label="Codigo de Material" visible="true">
+																
+																	<form:fields>
+																		<Input type="Text" id="codigo" visible="true" width="auto"  />
+																	</form:fields>
+																</form:FormElement>
+																<form:FormElement label="Medicamento">
+																	<form:fields>
+																		<Input id="txtmedicamento" />
+																	</form:fields>
+
+																</form:FormElement>
+																<form:FormElement label="Dosis">	
+																	<form:fields>
+																		<Input id="ctdDosis" />
+																	</form:fields>
+																</form:FormElement>
+																<form:FormElement label="Frecuencia">
+																	<form:fields>
+																		<Input id="ctdfrecuencia" /> 
+																	</form:fields>
+																</form:FormElement>
+																<form:FormElement label="Observación">
+															
+																	<form:fields>
+																		<HBox direction="Column">
+																		<TextArea id="txObservacion" rows="3" width="100%"  placeholder="Diagnostico e Indicaciones "/>
+																		<!-- <TextArea id="txObservacion1s" rows="3" width="100%"  placeholder="Diagnostico e Indicaciones "/> -->
+																		
+																		</HBox>
+																	</form:fields>
+																</form:FormElement>
+															
+															
+															</form:formElements>
+													</form:FormContainer>
+													<form:FormContainer visible="true" title="Incapacidad">
+														<form:formElements>
+															<form:FormElement label="Dias de Incapacidad" visible="true">
+										
+																<form:fields>
+																	<Input type="Text" id="ctdDias" visible="true" width="auto"  />
+																</form:fields>
+															</form:FormElement>
+															<form:FormElement label="Diagnostico">
+													
+																<form:fields>
+																	<Input id="txtDiagnostico" />
+																</form:fields>
+
+															</form:FormElement>
+															<form:FormElement label="Vigencia de Incapacidad">
+									
+																<form:fields>
+																	<Input id="txtVigencia"/>
+																</form:fields>
+															</form:FormElement>
+															<form:FormElement>
+																<form:fields>
+																	<Button type="Ghost" text="Añadir a Formula" press="grabarFormula"></Button>
+																</form:fields>
+															</form:FormElement>
+														</form:formElements>
+														<form:title/>
+													</form:FormContainer>
+												</form:formContainers>
+											<form:layout>
+												<form:ResponsiveGridLayout adjustLabelSpan="false" 
+												columnsL="2" labelSpanL="2" columnsM="1" 
+												labelSpanM="2" labelSpanS="12"/>
+											</form:layout>
+				</form:Form>
+			</HBox>
+			<VBox visible="true">
+				<Table  id="tablaFormula" >
+				<!-- <core:Title text="dasdasdsa" ></core:Title> -->
+
+					<headerToolbar>
+						<Toolbar>
+							<Title text="Formulario Medico"/>
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://save" press="generarReceta" />
+													
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column>
+							<Text text="Codigo"/>
+						</Column>
+						<Column>
+							<Text text="Medicamento"/>
+						</Column>
+						<Column>
+							<Text text="Dosis"/>
+						</Column>
+						<Column>
+							<Text text="Frecuencia"/>
+						</Column>
+						<Column>
+							<Text text="Observación"/>
+						</Column>
+						<Column>
+							<Text text="Dias de Incapacidad"/>
+						</Column>
+						<Column>
+							<Text text="Diagnostico"/>
+						</Column>
+						<Column>
+							<Text text="Vigencia de Incapacidad"/>
+						</Column>
+						<Column width="50px"/>	
+						<Column width="60px"/>
+					</columns>
+					<items>
+						<!-- <ColumnListItem> -->
+							<!-- <cells>
+									<Input enabled="false" value="{codigo}"/>
+									<Input enabled="false" value="{medicamento}"/>
+									<Input enabled="false" value="{dosis}"/>
+									<Input enabled="false" value="{frecuencia}"/>
+									<TextArea enabled="false" value="{observacion}"/>
+									<Input enabled="false" value="{dias}"/>
+									<Input enabled="false" value="{diagnostico}"/>
+									<Input enabled="false" value="{vigencia}"/>
+									<Button icon="sap-icon://edit" id="btnEditar" press="editarCampos"  />
+									<Button  icon="sap-icon://save" id="btnGuardar" press="guardarEditado"  visible="false"/> 
+									
+							</cells> -->
+						<!-- </ColumnListItem> -->
+					</items>
+				</Table>
+			</VBox>
+		<!-- </VBox> -->
+    <!-- </content>
+</Page> -->
+
+<!-- </App> -->
+<!-- </mvc:View> -->
+
+</core:FragmentDefinition>

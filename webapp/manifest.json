@@ -1,0 +1,166 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"id": "com.csti",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.2.2"
+		},
+		"dataSources": {
+			"local": {
+				"uri": "/here/goes/your/serviceUrl/local/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"title": "Mis Pendientes",
+		"description": "{{appDescription}}",
+		"ach": "ach",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.32.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"_version": "1.3.0",
+		"rootView": {
+			"viewName": "com.csti.view.Home",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.50.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"": {
+				"dataSource": "local",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"loadMetadataAsync": false,
+					"json": true,
+					"bJSON": true,
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Inline",
+					"useBatch": true,
+					"refreshAfterChange": false,
+					"disableHeadRequestForToken": true
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			],
+			"js":[
+				{
+					"uri":"./resources/twilio-video.min.js"
+				}
+			]
+		
+		},
+		"resourceRoots": {
+			"openui5.camera": "./library",
+			"Camera": ""
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.csti.view",
+				"controlId": "App",
+				"clearTarget": false,
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"Home"
+					]
+				}
+			},
+			"targets": {
+				"Home": {
+					"controlAggregation": "pages",
+					"viewName": "Home",
+					"viewLevel": 1,
+					"transition": "slide"
+				},
+				"Detalle": {
+					"controlAggregation": "pages",
+					"viewName": "Detalle",
+					"viewLevel": 2,
+					"transition": "slide",
+					"viewId": "detalle"
+				},
+				"Camera": {
+					"controlAggregation": "pages",
+					"viewName": "Camera",
+					"viewLevel": 3,
+					"transition": "slide"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "Home/:context:",
+					"name": "Home",
+					"target": [
+						"Home"
+					]
+				},
+				{
+					"pattern": "Detalle",
+					"name": "Detalle",
+					"target": [
+						"Detalle"
+					]
+				},
+				{
+					"pattern": "Camera",
+					"name": "Camera",
+					"target": [
+						"Camera"
+					]
+				}
+			]
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}
