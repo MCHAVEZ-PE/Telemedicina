@@ -378,11 +378,11 @@ sap.ui.define(
             var value = track.attach();
             console.log("VALOR DEL TRACK.ATTACH", value);
           } else if (track.kind === "video") {
+            // "application-telemedicinadoctor-Display-component---detalle--video_user_2"
             document
-              .getElementById(
-                // camara pequeña
-                "component---detalle--self_video"
-              // "application-telemedicinadoctor-Display-component---detalle--video_user_2"
+            .getElementById(
+              // camara pequeña
+              "component---detalle--self_video"
               )
               .appendChild(track.attach());
           }
